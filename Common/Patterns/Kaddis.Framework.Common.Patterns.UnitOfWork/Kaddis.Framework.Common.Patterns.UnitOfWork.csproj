@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CF975ECD-F7B1-4543-B04B-59270D914B0A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kaddis.Framework.Common.Patterns.UnitOfWork</RootNamespace>
+    <AssemblyName>Kaddis.Framework.Common.Patterns.UnitOfWork</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IUnitOfWork.cs" />
+    <Compile Include="KaddisFrameworkContextUnitOfWork.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitOfWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Data\Kaddis.Framework.Data.KaddisFrameworkModel\Kaddis.Framework.Data.KaddisFrameworkModel.csproj">
+      <Project>{E86A141B-BFCA-4A85-9BF0-928BDAB268CF}</Project>
+      <Name>Kaddis.Framework.Data.KaddisFrameworkModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Modules\Admin\DataServices\Kaddis.Framework.DataServices.Admin\Kaddis.Framework.DataServices.Admin.csproj">
+      <Project>{B7CF9664-9DFA-477E-AB63-E152B4F1157D}</Project>
+      <Name>Kaddis.Framework.DataServices.Admin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Modules\Admin\DataServices\Kaddis.Framework.DataServices.IAdmin\Kaddis.Framework.DataServices.IAdmin.csproj">
+      <Project>{DA620141-DE41-41C4-8A59-172631A08849}</Project>
+      <Name>Kaddis.Framework.DataServices.IAdmin</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kaddis.Framework.Common.Patterns.Repository\Kaddis.Framework.Common.Patterns.Repository.csproj">
+      <Project>{4E90B123-95C8-4ACA-A5E1-AB18D55A0304}</Project>
+      <Name>Kaddis.Framework.Common.Patterns.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
