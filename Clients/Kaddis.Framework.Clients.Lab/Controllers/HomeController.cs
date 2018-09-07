@@ -18,7 +18,7 @@ namespace Kaddis.Framework.Clients.Lab.Controllers
         {
             HttpClient client = new HttpClient();
 
-            HttpResponseMessage response = await client.GetAsync("http://localhost:65476/api/test/getall");
+            HttpResponseMessage response = await client.GetAsync("http://localhost:65476/api/v1/test/getall");
             response.EnsureSuccessStatusCode();
 
             var contents = await response.Content.ReadAsStringAsync();

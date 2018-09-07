@@ -1,5 +1,6 @@
 ﻿using Kaddis.Framework.Common.Entities;
 using Kaddis.Framework.Facades.ICommon;
+using Microsoft.Web.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ using System.Web.Http;
 
 namespace Kaddis.Framework.APIs.Resources.Controllers
 {
+    [ApiVersion("1.0")]
+    [RoutePrefix("api/v{version:apiVersion}/test")]
     public class TestController : ApiController
     {
         private readonly ITestFacade testFacade;
@@ -19,34 +22,34 @@ namespace Kaddis.Framework.APIs.Resources.Controllers
             
         }
 
-        [Route("api/test/getall")]
+        [Route("getall")]
         public List<TestDto> GetAll()
         {
             return testFacade.GetAll();
         }
 
-        [Route("api/test/getbyid/{id}")]
+        [Route("getbyid/{id}")]
         public TestDto GetById(int Id)
         {
             return testFacade.GetById(Id);
         }
 
         [HttpPost]
-        [Route("api/test/insert")]
+        [Route("insert")]
         public void Insert(TestDto testDto)
         {
             testFacade.Insert(testDto);
         }
 
         [HttpPost]
-        [Route("api/test/update")]
+        [Route("update")]
         public void Update(TestDto testDto)
         {
             testFacade.Update(testDto);
         }
 
         [HttpPost]
-        [Route("api/test/delete/{Id}")]
+        [Route("delete/{Id}")]
         public void Delete(int Id)
         {
             testFacade.Delete(Id);

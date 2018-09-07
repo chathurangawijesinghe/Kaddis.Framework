@@ -23,7 +23,7 @@ namespace Kaddis.Framework.Clients.Lab.Controllers
         // GET: Tests
         public async Task<ActionResult> Index()
         {
-            HttpResponseMessage response = await client.GetAsync("http://localhost:65476/api/test/getall");
+            HttpResponseMessage response = await client.GetAsync("http://localhost:65476/api/v1/test/getall");
             response.EnsureSuccessStatusCode();
 
             var contents = await response.Content.ReadAsStringAsync();
@@ -43,7 +43,7 @@ namespace Kaddis.Framework.Clients.Lab.Controllers
             }
             //Test test = await db.Tests.FindAsync(id);
 
-            HttpResponseMessage response = await client.GetAsync(string.Format("http://localhost:65476/api/test/getbyid/{0}", id));
+            HttpResponseMessage response = await client.GetAsync(string.Format("http://localhost:65476/api/v1/test/getbyid/{0}", id));
             response.EnsureSuccessStatusCode();
 
             var contents = await response.Content.ReadAsStringAsync();
